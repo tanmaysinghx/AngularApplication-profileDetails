@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="login-outer-card">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title class="login-header">Login</mat-card-title>
+        </mat-card-header>
+        <div class="form-field">
+            <form [formGroup]="loginForm" *ngIf="loginForm">
+                <div class="form-group">
+                    <mat-form-field class="field-width" appearance="fill">
+                        <mat-label>Enter your username</mat-label>
+                        <input matInput placeholder="tanmay.s" formControlName="userName" required>
+                        <mat-error *ngIf="loginForm.controls.userName.errors?.required">This field is required!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="field-width" appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="loginForm.controls.password.errors?.required">This field is required!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="spacing-1">
+                    <button mat-raised-button color="primary">Login</button>
+                </div>
+                <div class="spacing-2">
+                    <button mat-button color="warn" (click)="navigateToRegister()">If not registered then click to register now!</button>
+                </div>
+            </form>
+        </div>
+
+        <mat-card-footer>
+            <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+        </mat-card-footer>
+    </mat-card>
+</div>

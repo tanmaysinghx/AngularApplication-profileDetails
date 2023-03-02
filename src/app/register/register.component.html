@@ -1,1 +1,75 @@
-<p>register works!</p>
+<div class="login-outer-card">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <mat-card-title class="login-header">Register Form</mat-card-title>
+        </mat-card-header>
+        <div class="form-field">
+            <form [formGroup]="registerForm" *ngIf="registerForm">
+                <div class="form-group">
+                    <mat-form-field class="field-width" appearance="fill">
+                        <mat-label>Enter your Full Name</mat-label>
+                        <input matInput placeholder="Tanmay Singh" formControlName="name" required maxlength="20">
+                        <mat-error *ngIf="registerForm.controls.name.errors?.required">This field is required!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="field-width" appearance="fill">
+                        <mat-label>Enter your Age</mat-label>
+                        <input matInput placeholder="24" formControlName="age" required maxlength="2">
+                        <mat-error *ngIf="registerForm.controls.age.errors?.required">This field is required!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <label id="example-radio-group-label">Gender</label>
+                    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        [(ngModel)]="selectedGender" formControlName="gender">
+                        <mat-radio-button class="example-radio-button" *ngFor="let genderValue of genders"
+                            [value]="genderValue">
+                            {{genderValue}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                    <!-- <div>Your favorite season is: {{selectedGender}}</div> -->
+                </div>
+                <div class="form-group">
+                    <h4>Country</h4>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Select your country</mat-label>
+                        <mat-select formControlName="country">
+                            <mat-option *ngFor="let countries of countries" [value]="countries.value">
+                                {{countries.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="field-width" appearance="fill">
+                        <mat-label>Enter your username</mat-label>
+                        <input matInput placeholder="tanmay.s" formControlName="userName" required maxlength="18">
+                        <mat-error *ngIf="registerForm.controls.userName.errors?.required">This field is required!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field class="field-width" appearance="fill">
+                        <mat-label>Enter your password</mat-label>
+                        <input matInput placeholder="password" formControlName="password" required maxlength="20">
+                        <mat-error *ngIf="registerForm.controls.password.errors?.required">This field is required!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="spacing-1">
+                    <button mat-raised-button color="primary" (click)="registerNow()">Register</button>
+                </div>
+                <div class="spacing-2">
+                    <button mat-button color="warn" (click)="navigateTologin()">If already registered then click to login now!</button>
+                </div>
+            </form>
+        </div>
+
+        <mat-card-footer>
+            <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+        </mat-card-footer>
+    </mat-card>
+</div>
