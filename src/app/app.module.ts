@@ -49,6 +49,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AddHobbiesComponent } from './add-hobbies/add-hobbies.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +60,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     DashboardComponent,
     HeaderComponent,
+    AddHobbiesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,6 +105,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     ReactiveFormsModule,
     FormsModule,
+    NgbModule,
   ],
   exports: [
     MatAutocompleteModule,

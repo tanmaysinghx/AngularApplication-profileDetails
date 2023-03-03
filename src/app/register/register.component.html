@@ -1,7 +1,8 @@
 <div class="login-outer-card">
     <mat-card class="login-card">
         <mat-card-header>
-            <mat-card-title class="login-header">Register Form</mat-card-title>
+            <mat-card-title *ngIf="!editFlag" class="login-header">Register Form</mat-card-title>
+            <mat-card-title *ngIf="editFlag" class="login-header">Update Details Form</mat-card-title>
         </mat-card-header>
         <div class="form-field">
             <form [formGroup]="registerForm" *ngIf="registerForm">
@@ -59,10 +60,13 @@
                         </mat-error>
                     </mat-form-field>
                 </div>
-                <div class="spacing-1">
+                <div *ngIf="!editFlag" class="spacing-1">
                     <button mat-raised-button color="primary" (click)="registerNow()">Register</button>
                 </div>
-                <div class="spacing-2">
+                <div *ngIf="editFlag" class="spacing-1">
+                    <button mat-raised-button color="primary" (click)="updateDetails()">Update Details</button>
+                </div>
+                <div *ngIf="!editFlag" class="spacing-2">
                     <button mat-button color="warn" (click)="navigateTologin()">If already registered then click to login now!</button>
                 </div>
             </form>

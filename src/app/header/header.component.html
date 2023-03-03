@@ -5,10 +5,10 @@
             <mat-icon>menu</mat-icon>
         </button>
         <span class="example-spacer"></span>
-        <span>Angular Test Application</span>
+        <span (click)="navigateToHome()">Angular Test Application</span>
         <span class="example-spacer-1"></span>
-        <span class="username-font">Welcome {{userName}} </span>
-        <button mat-icon-button class="example-icon pl-3" aria-label="Example icon-button with share icon">
+        <span *ngIf="usernameFlag" class="username-font">Welcome {{userName}} </span>
+        <button mat-icon-button class="example-icon pl-3" (click)="logout()" aria-label="Example icon-button with share icon">
             <mat-icon>exit_to_app</mat-icon>
         </button>
     </mat-toolbar>

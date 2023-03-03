@@ -1,0 +1,25 @@
+<div class="padding-custom">
+    <mat-card-actions class="">
+        <form [formGroup]="hobbyForm" *ngIf="hobbyForm"><mat-form-field class="field-width" appearance="fill">
+            <mat-label>Enter your hobby</mat-label>
+            <input matInput placeholder="football" formControlName="myhobby">
+        </mat-form-field>
+        <button mat-raised-button class="delete-btn pl-2" color="accent" (click)="addHobbies()">Add</button>
+        <button mat-raised-button class="delete-btn pl-2" color="primary" (click)="saveAndNavigateToDashboard()">Save</button>
+        </form>
+    </mat-card-actions>
+    <div class="hobby-card" *ngFor="let list of hobbiesDataArray">
+        <mat-card class="example-card">
+            <div class="row">
+                <div class="col-8">
+                    <span class="">{{list}} </span>
+                </div>
+                <div class="col-2 offset-1">
+                    <button mat-fab color="primary" class="delete-btn" aria-label="Example icon button with a delete icon" (click)="delete(list)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-card>  
+    </div>
+</div>
